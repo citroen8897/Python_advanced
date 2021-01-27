@@ -28,11 +28,12 @@ def main():
                 for c in range(c_start, c_fin + 1):
                     if b ** 2 - 4 * a * c >= 0:
                         diskriminant = b ** 2 - 4 * a * c
-                        x_1 = (-b + diskriminant ** (1 / 2)) / 2 * a
-                        x_2 = (-b - diskriminant ** (1 / 2)) / 2 * a
+                        x_1 = (-b + diskriminant ** (1 / 2)) / (2 * a)
+                        x_2 = (-b - diskriminant ** (1 / 2)) / (2 * a)
                         x_list.append((x_1, x_2))
                         print(f'Уравнение с коефициентами {a}, {b}, {c} '
-                              f'существует.\nКорни уравнения: {x_1}, {x_2}\n')
+                              f'существует.\nКорни уравнения: {round(x_1, 2)},'
+                              f' {round(x_2, 2)}\n')
 
         if len(x_list) == 0:
             print('В заданных диапазонах не существует ни одного уравнения!\n')
