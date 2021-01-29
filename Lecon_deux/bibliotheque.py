@@ -38,3 +38,4 @@ class Bibliotheque:
     def get_list_livres_all(self):
         for element in self.list_livres:
             print(f'{element["nom"]}')
+
