@@ -13,6 +13,8 @@ while True:
     user_input_1 = input('\nВыберите действие\n'
                          '1 - добавить книгу\n'
                          '2 - удалить книгу\n'
+                         '3 - отдать книгу читателю\n'
+                         '4 - принять книгу от читателя\n'
                          '5 - показать список книг в библиотеке\n'
                          '6 - показать список книг в наличии\n'
                          '7 - показать список книг выданных читателям\n'
@@ -34,6 +36,20 @@ while True:
         user_input_2 = input('Введите id книги для удаления: ')
         bibliotheque.Bibliotheque.delete_livre(current_biblioteque,
                                                str(user_input_2))
+
+    elif user_input_1 == '3':
+        user_input_2 = input('Введите id книги: ')
+        user_input_3 = input('Введите id читателя: ')
+        bibliotheque.Bibliotheque.envoyer_livre_a_reader(current_biblioteque,
+                                                         user_input_2,
+                                                         user_input_3)
+
+    elif user_input_1 == '4':
+        user_input_2 = input('Введите id книги: ')
+        user_input_3 = input('Введите id читателя: ')
+        bibliotheque.Bibliotheque.ajouter_livre_de_reader(current_biblioteque,
+                                                          user_input_2,
+                                                          user_input_3)
 
     elif user_input_1 == '5':
         bibliotheque.Bibliotheque.get_list_livres_all(current_biblioteque)

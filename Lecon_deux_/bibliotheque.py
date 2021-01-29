@@ -1,6 +1,4 @@
 #     Методы:
-#         - Отдать книгу читателю
-#         - Принять книгу от читателя
 #         - Отсортировать список книг по названию, автору, году издания
 #         (lambda будет плюсом)
 
@@ -22,6 +20,23 @@ class Bibliotheque:
                 self.list_livres.pop(self.list_livres.index(element))
             else:
                 print('Такой книги в библиотеке нет!')
+
+    def envoyer_livre_a_reader(self, id_livre, id_reader):
+        for livre in self.list_livres:
+            for person in self.list_readers:
+                if livre['id'] == id_livre:
+                    if person['id'] == id_reader:
+                        person['list_des_livres_reader'].append(livre)
+                        livre['triger'] = 0
+
+    def ajouter_livre_de_reader(self, id_livre, id_reader):
+        for livre in self.list_livres:
+            for person in self.list_readers:
+                if livre['id'] == id_livre:
+                    if person['id'] == id_reader:
+                        person['list_des_livres_reader'].pop(
+                            person['list_des_livres_reader'].index(livre))
+                        livre['triger'] = 1
 
     def plus_reader(self, new_reader):
         self.list_readers.append({'nom': new_reader.nom,
