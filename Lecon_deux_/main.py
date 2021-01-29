@@ -1,10 +1,24 @@
 import bibliotheque
 import livres
 import reader
+import json
 
 print('S.P.Q.R.')
-list_de_livres = []
-list_des_readers = []
+
+try:
+    data_base_de_livres = open('livres_d_b.json', 'r')
+    data_base_des_readers = open('readers_d_b.json', 'r')
+except FileNotFoundError:
+    data_base_de_livres = open('livres_d_b.json', 'w')
+    data_base_des_readers = open('readers_d_b.json', 'w')
+    list_de_livres = []
+    list_des_readers = []
+else:
+    list_de_livres = json.load(data_base_de_livres)
+    list_des_readers = json.load(data_base_des_readers)
+finally:
+    data_base_de_livres.close()
+    data_base_des_readers.close()
 
 while True:
     current_biblioteque = bibliotheque.Bibliotheque(list_de_livres,
@@ -86,5 +100,14 @@ while True:
         bibliotheque.Bibliotheque.get_list_readers_all(current_biblioteque)
 
     elif user_input_1 == '0':
+        data_base_de_livres = open('livres_d_b.json', 'w')
+        data_base_des_readers = open('readers_d_b.json', 'w')
+        data_pour_ecrire = json.dumps(list_de_livres, indent=4)
+        data_pour_ecrire_2 = json.dumps(list_des_readers, indent=4)
+        data_base_de_livres.write(data_pour_ecrire)
+        data_base_de_livres.close()
+        data_base_des_readers.write(data_pour_ecrire_2)
+        data_base_des_readers.close()
+
         input('Нажмите любую клавишу для выхода')
         break
