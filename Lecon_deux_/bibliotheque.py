@@ -1,18 +1,6 @@
-# 1. Класс библиотека
-#     Поля:
-#         - список книг (list Books)
-#         - список читателей (list Readers)
-#
 #     Методы:
-#         - Добавить книгу
-#         - Удалить книгу
 #         - Отдать книгу читателю
 #         - Принять книгу от читателя
-#
-#         - Вывести список всех книг
-#         - Вывести список книг в библиотеке (в наличии)
-#         - Вывести списк книг, которые не в наличии
-#
 #         - Отсортировать список книг по названию, автору, году издания
 #         (lambda будет плюсом)
 
@@ -35,6 +23,35 @@ class Bibliotheque:
             else:
                 print('Такой книги в библиотеке нет!')
 
+    def plus_reader(self, new_reader):
+        self.list_readers.append({'nom': new_reader.nom,
+                                  'prenom': new_reader.prenom,
+                                  'id': new_reader.id_reader,
+                                  'list_des_livres_reader':
+                                      new_reader.list_des_livres_reader})
+
     def get_list_livres_all(self):
+        j = 1
         for element in self.list_livres:
-            print(f'{element["nom"]}')
+            print(f'{j}. {element["nom"]}')
+            j += 1
+
+    def get_list_livres_dans_bibliotheque(self):
+        j = 1
+        for element in self.list_livres:
+            if element['triger'] == 1:
+                print(f'{j}. {element["nom"]}')
+                j += 1
+
+    def get_list_livres_dans_readers(self):
+        j = 1
+        for element in self.list_livres:
+            if element['triger'] == 0:
+                print(f'{j}. {element["nom"]}')
+                j += 1
+
+    def get_list_readers_all(self):
+        j = 1
+        for element in self.list_readers:
+            print(f'{j}. {element["prenom"]} {element["nom"]} {element["id"]}')
+            j += 1

@@ -1,5 +1,6 @@
 import bibliotheque
 import livres
+import reader
 
 print('S.P.Q.R.')
 list_de_livres = []
@@ -9,10 +10,16 @@ while True:
     current_biblioteque = bibliotheque.Bibliotheque(list_de_livres,
                                                     list_des_readers)
 
-    user_input_1 = input('Выберите действие\n1 - добавить книгу\n'
-                         '2 - удалить книгу'
-                         '\n5 - показать список книг в библиотеке'
-                         '\nВаш выбор: ')
+    user_input_1 = input('\nВыберите действие\n'
+                         '1 - добавить книгу\n'
+                         '2 - удалить книгу\n'
+                         '5 - показать список книг в библиотеке\n'
+                         '6 - показать список книг в наличии\n'
+                         '7 - показать список книг выданных читателям\n'
+                         '9 - добавить читателя\n'
+                         '10 - показать список читателей\n'
+                         '0 - выход из программы\n'
+                         'Ваш выбор: ')
 
     if user_input_1 == '1':
         new_livre = livres.Livre(input('id книги: '),
@@ -30,3 +37,26 @@ while True:
 
     elif user_input_1 == '5':
         bibliotheque.Bibliotheque.get_list_livres_all(current_biblioteque)
+
+    elif user_input_1 == '6':
+        bibliotheque.Bibliotheque.get_list_livres_dans_bibliotheque(
+            current_biblioteque)
+
+    elif user_input_1 == '7':
+        bibliotheque.Bibliotheque.get_list_livres_dans_readers(
+            current_biblioteque)
+
+    elif user_input_1 == '9':
+        new_reader = reader.Reader(input('Имя: '),
+                                   input('Фамилия: '),
+                                   input('id: '),
+                                   [])
+        bibliotheque.Bibliotheque.plus_reader(current_biblioteque,
+                                              new_reader=new_reader)
+
+    elif user_input_1 == '10':
+        bibliotheque.Bibliotheque.get_list_readers_all(current_biblioteque)
+
+    elif user_input_1 == '0':
+        input('Нажмите любую клавишу для выхода')
+        break
