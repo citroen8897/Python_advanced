@@ -1,7 +1,3 @@
-#     Методы:
-#         - Отсортировать список книг по названию, автору, году издания
-#         (lambda будет плюсом)
-
 class Bibliotheque:
     def __init__(self, list_livres, list_readers):
         self.list_livres = list_livres
@@ -37,6 +33,27 @@ class Bibliotheque:
                         person['list_des_livres_reader'].pop(
                             person['list_des_livres_reader'].index(livre))
                         livre['triger'] = 1
+
+    def sort_de_nom(self):
+        j = 1
+        for element in sorted(self.list_livres,
+                              key=lambda element: element['nom']):
+            print(f'{j}. {element["nom"]} {element["author"]} '
+                  f'{element["year"]} {element["id"]}')
+
+    def sort_de_author(self):
+        j = 1
+        for element in sorted(self.list_livres,
+                              key=lambda element: element['author']):
+            print(f'{j}. {element["nom"]} {element["author"]} '
+                  f'{element["year"]} {element["id"]}')
+
+    def sort_de_year(self):
+        j = 1
+        for element in sorted(self.list_livres,
+                              key=lambda element: element['year']):
+            print(f'{j}. {element["nom"]} {element["author"]} '
+                  f'{element["year"]} {element["id"]}')
 
     def plus_reader(self, new_reader):
         self.list_readers.append({'nom': new_reader.nom,

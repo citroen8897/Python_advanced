@@ -18,6 +18,7 @@ while True:
                          '5 - показать список книг в библиотеке\n'
                          '6 - показать список книг в наличии\n'
                          '7 - показать список книг выданных читателям\n'
+                         '8 - сортировка книг в библиотеке\n'
                          '9 - добавить читателя\n'
                          '10 - показать список читателей\n'
                          '0 - выход из программы\n'
@@ -61,6 +62,17 @@ while True:
     elif user_input_1 == '7':
         bibliotheque.Bibliotheque.get_list_livres_dans_readers(
             current_biblioteque)
+
+    elif user_input_1 == '8':
+        user_input_4 = input('Сортировка по названию книги - нажмите 1\n'
+                             'Сортировка по автору книги - нажмите 2\n'
+                             'Сортировка по году издания книги - нажмите 3\n')
+        if user_input_4 == '1':
+            bibliotheque.Bibliotheque.sort_de_nom(current_biblioteque)
+        elif user_input_4 == '2':
+            bibliotheque.Bibliotheque.sort_de_author(current_biblioteque)
+        elif user_input_4 == '3':
+            bibliotheque.Bibliotheque.sort_de_year(current_biblioteque)
 
     elif user_input_1 == '9':
         new_reader = reader.Reader(input('Имя: '),
