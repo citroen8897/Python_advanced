@@ -94,38 +94,73 @@ class Bibliotheque:
             j += 1
 
     def plus_reader(self, new_reader):
-        self.list_readers.append({'nom': new_reader.nom,
-                                  'prenom': new_reader.prenom,
-                                  'birth_jour': new_reader.birth_jour,
-                                  'birth_mois': new_reader.birth_mois,
-                                  'birth_an': new_reader.birth_an,
-                                  'rue': new_reader.rue,
-                                  'maison': new_reader.maison,
-                                  'id': new_reader.id_reader,
-                                  'list_des_livres_reader':
-                                      new_reader.list_des_livres_reader})
+        temp_id_list = len(list(
+            filter(lambda element: element['id'] == new_reader.id_reader,
+                   self.list_readers)))
+        temp_1 = len(list(
+            filter(lambda element: element['nom'] == new_reader.nom,
+                   self.list_readers)))
+        temp_2 = len(list(
+            filter(lambda element: element['prenom'] == new_reader.prenom,
+                   self.list_readers)))
+        temp_3 = len(list(
+            filter(lambda element: element['birth_jour'] == new_reader.
+                   birth_jour, self.list_readers)))
+        temp_4 = len(list(
+            filter(lambda element: element['birth_mois'] == new_reader.
+                   birth_mois, self.list_readers)))
+        temp_5 = len(list(
+            filter(lambda element: element['birth_an'] == new_reader.birth_an,
+                   self.list_readers)))
+
+        if temp_1 != 0 and temp_2 != 0 and temp_3 != 0 and temp_4 != 0 and \
+                temp_5 != 0:
+            print('Пользователь с такими данными уже зарегистрирован!')
+
+        elif temp_id_list != 0:
+            print('id уже занят!')
+
+        else:
+            self.list_readers.append({'nom': new_reader.nom,
+                                      'prenom': new_reader.prenom,
+                                      'birth_jour': new_reader.birth_jour,
+                                      'birth_mois': new_reader.birth_mois,
+                                      'birth_an': new_reader.birth_an,
+                                      'rue': new_reader.rue,
+                                      'maison': new_reader.maison,
+                                      'id': new_reader.id_reader,
+                                      'list_des_livres_reader':
+                                          new_reader.list_des_livres_reader})
+            print('Пользователь успешно зарегистрирован!')
 
     def get_list_livres_all(self):
+        print('\nСписок всех книг в библиотеке:\n')
         j = 1
         for element in self.list_livres:
-            print(f'{j}. {element["nom"]}')
+            print(f'{j}. {element["nom"]} {element["author"]} '
+                  f'{element["year"]}')
             j += 1
 
     def get_list_livres_dans_bibliotheque(self):
+        print('\nСписок книг в наличии:\n')
         j = 1
         for element in self.list_livres:
             if element['triger'] == 1:
-                print(f'{j}. {element["nom"]}')
+                print(f'{j}. {element["nom"]} {element["author"]} '
+                      f'{element["year"]}')
                 j += 1
 
     def get_list_livres_dans_readers(self):
+        print('\nСписок книг на руках у читателей:\n')
         j = 1
         for element in self.list_livres:
             if element['triger'] == 0:
-                print(f'{j}. {element["nom"]}')
+                print(f'{j}. {element["nom"]} {element["author"]} '
+                      f'{element["year"]}')
                 j += 1
 
     def get_list_readers_all(self):
+        print('\nСписок зарегистрированных читателей:\n')
         j = 1
         for element in self.list_readers:
             print(f'{j}. {element["prenom"]} {element["nom"]} {element["id"]}')
