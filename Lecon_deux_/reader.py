@@ -1,6 +1,21 @@
 class Reader:
-    def __init__(self, nom, prenom, birth_jour, birth_mois, birth_an, rue,
-                 maison, id_reader, list_des_livres_reader):
+    def __init__(self, nom: str, prenom: str, birth_jour: str,
+                 birth_mois: str, birth_an: str, rue: str,
+                 maison: str, id_reader: str,
+                 list_des_livres_reader: list) -> None:
+        """
+        Создаем объект класса Читатель.
+        Необходимо передать девять атрибутов.
+        :param nom:
+        :param prenom:
+        :param birth_jour:
+        :param birth_mois:
+        :param birth_an:
+        :param rue:
+        :param maison:
+        :param id_reader:
+        :param list_des_livres_reader:
+        """
         self.nom = nom
         self.prenom = prenom
         self.birth_jour = birth_jour

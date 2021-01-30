@@ -1,9 +1,23 @@
 class Bibliotheque:
-    def __init__(self, list_livres, list_readers):
+    def __init__(self, list_livres: list, list_readers: list) -> None:
+        """
+        Создаем объект класса Библиотека.
+        У объекта два атрибута - список книг и список пользователей
+        :param list_livres:
+        :param list_readers:
+        """
         self.list_livres = list_livres
         self.list_readers = list_readers
 
-    def plus_livre(self, new_livre):
+    def plus_livre(self, new_livre: any) -> None:
+        """
+        Метод обавления новой книги в бибилиотеку.
+        Необходимо передать пять атрибутов объекта Книга.
+        Метод записывает атрибуты в словарь и добавляет его в список книг.
+        В методе реализована проверка эксклюзивности Книги.
+        :param new_livre: первые четыре атрибута str, пятый атрибут - int
+        :return:
+        """
         id_livres_list = [element['id'] for element in self.list_livres]
         if new_livre.id_livre in id_livres_list:
             print('Книга с таким id уже существует!')
@@ -15,7 +29,13 @@ class Bibliotheque:
                                      'triger': new_livre.triger})
             print('Книга успешно добавлена')
 
-    def delete_livre(self, id_livre):
+    def delete_livre(self, id_livre: str) -> None:
+        """
+        Метод удаления книги из библиотеки.
+        Необходимо передать id удаляемой книги.
+        :param id_livre:
+        :return:
+        """
         id_livres_list = [element['id'] for element in self.list_livres]
         if id_livre in id_livres_list:
             for element in self.list_livres:
@@ -25,7 +45,14 @@ class Bibliotheque:
         else:
             print('Книга с таким id не найдена')
 
-    def envoyer_livre_a_reader(self, id_livre, id_reader):
+    def envoyer_livre_a_reader(self, id_livre: str, id_reader: str) -> None:
+        """
+        Метод выдачи книги читателю.
+        Необходимо передать id книги и id читателя.
+        :param id_livre:
+        :param id_reader:
+        :return:
+        """
         id_livres_list = [element['id'] for element in self.list_livres]
         id_readers_list = [element['id'] for element in self.list_readers]
         if id_livre in id_livres_list and id_reader in id_readers_list:
@@ -43,7 +70,14 @@ class Bibliotheque:
         else:
             print('id книги или читателя не найден!')
 
-    def ajouter_livre_de_reader(self, id_livre, id_reader):
+    def ajouter_livre_de_reader(self, id_livre: str, id_reader: str) -> None:
+        """
+        Метод приема книги от читателя.
+        Необходимо передать id книги и id читателя.
+        :param id_livre:
+        :param id_reader:
+        :return:
+        """
         id_livres_list = [element['id'] for element in self.list_livres]
         id_readers_list = [element['id'] for element in self.list_readers]
         if id_livre in id_livres_list and id_reader in id_readers_list:
@@ -67,6 +101,10 @@ class Bibliotheque:
             print('id книги или читателя не найден!')
 
     def sort_de_nom(self):
+        """
+        Сортировка по названию книги.
+        :return:
+        """
         print('Сортировка по названию книги')
         j = 1
         for element in sorted(self.list_livres,
@@ -76,6 +114,10 @@ class Bibliotheque:
             j += 1
 
     def sort_de_author(self):
+        """
+        Сортировка по фамилии автора книги
+        :return:
+        """
         print('Сортировка по автору книги')
         j = 1
         for element in sorted(self.list_livres,
@@ -85,6 +127,10 @@ class Bibliotheque:
             j += 1
 
     def sort_de_year(self):
+        """
+        Сортировка по году издания книги
+        :return:
+        """
         print('Сортировка по году издания')
         j = 1
         for element in sorted(self.list_livres,
@@ -93,7 +139,15 @@ class Bibliotheque:
                   f'{element["year"]} {element["id"]}')
             j += 1
 
-    def plus_reader(self, new_reader):
+    def plus_reader(self, new_reader: any) -> None:
+        """
+        Метод добавления читателя в библиотеку.
+        Необходимо передать девять атрибутов объекта Читатель.
+        Первые восемь атрибутов - str. Девятый - list.
+        В методе реализована проверка эксклюзивности Читателя.
+        :param new_reader:
+        :return:
+        """
         temp_id_list = len(list(
             filter(lambda element: element['id'] == new_reader.id_reader,
                    self.list_readers)))
@@ -134,6 +188,10 @@ class Bibliotheque:
             print('Пользователь успешно зарегистрирован!')
 
     def get_list_livres_all(self):
+        """
+        Показать список всех книг в бибилиотеке.
+        :return:
+        """
         print('\nСписок всех книг в библиотеке:\n')
         j = 1
         for element in self.list_livres:
@@ -142,6 +200,10 @@ class Bibliotheque:
             j += 1
 
     def get_list_livres_dans_bibliotheque(self):
+        """
+        Показать список книг в наличии.
+        :return:
+        """
         print('\nСписок книг в наличии:\n')
         j = 1
         for element in self.list_livres:
@@ -151,6 +213,10 @@ class Bibliotheque:
                 j += 1
 
     def get_list_livres_dans_readers(self):
+        """
+        Показать список книг на руках у читателей.
+        :return:
+        """
         print('\nСписок книг на руках у читателей:\n')
         j = 1
         for element in self.list_livres:
@@ -160,6 +226,10 @@ class Bibliotheque:
                 j += 1
 
     def get_list_readers_all(self):
+        """
+        Показать список всех читателей.
+        :return:
+        """
         print('\nСписок зарегистрированных читателей:\n')
         j = 1
         for element in self.list_readers:
