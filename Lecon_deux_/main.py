@@ -24,7 +24,9 @@ while True:
     current_biblioteque = bibliotheque.Bibliotheque(list_de_livres,
                                                     list_des_readers)
 
-    user_input_1 = input('\nВыберите действие\n'
+    user_input_1 = input('\n____Библиотека____\n\n'
+                         'Основное меню\n'
+                         'Выберите действие\n'
                          '1 - добавить книгу\n'
                          '2 - удалить книгу\n'
                          '3 - отдать книгу читателю\n'
@@ -91,6 +93,11 @@ while True:
     elif user_input_1 == '9':
         new_reader = reader.Reader(input('Имя: '),
                                    input('Фамилия: '),
+                                   input('День рождения: '),
+                                   input('Месяц рождения: '),
+                                   input('Год рождения: '),
+                                   input('Улица: '),
+                                   input('Дом: '),
                                    input('id: '),
                                    [])
         bibliotheque.Bibliotheque.plus_reader(current_biblioteque,

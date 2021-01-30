@@ -2,6 +2,11 @@
     {
         "nom": "\u0410\u043b\u0435\u043a\u0441\u0435\u0439",
         "prenom": "\u041a\u0430\u0442\u043a\u043e\u0432",
+        "birth_jour": "25",
+        "birth_mois": "08",
+        "birth_an": "1990",
+        "rue": "8 \u041c\u0430\u0440\u0442\u0430",
+        "maison": "22",
         "id": "1001",
         "list_des_livres_reader": [
             {
@@ -14,27 +19,33 @@
         ]
     },
     {
-        "nom": "\u0413\u0435\u043e\u0440\u0433\u0438\u0439",
+        "nom": "\u0428\u0435\u043e\u0413\u0435\u043e\u0440\u0433\u0438\u0439",
         "prenom": "\u0413\u0443\u0437\u043b\u043e",
+        "birth_jour": "28",
+        "birth_mois": "05",
+        "birth_an": "2017",
+        "rue": "8 \u041c\u0430\u0440\u0442\u0430",
+        "maison": "22",
         "id": "1002",
-        "list_des_livres_reader": []
+        "list_des_livres_reader": [
+            {
+                "id": "0002",
+                "nom": "\u0418\u0434\u0438\u043e\u0442",
+                "author": "\u0414\u043e\u0441\u0442\u043e\u0435\u0432\u0441\u043a\u0438\u0439",
+                "year": "1900",
+                "triger": 0
+            }
+        ]
     },
     {
         "nom": "\u0422\u0440\u0438\u0444\u043e\u043d",
         "prenom": "\u0424\u0443\u043d\u0442\u044f\u043d\u0441\u043a\u0438\u0439",
+        "birth_jour": "30",
+        "birth_mois": "05",
+        "birth_an": "2016",
+        "rue": "8 \u041c\u0430\u0440\u0442\u0430",
+        "maison": "22",
         "id": "1003",
-        "list_des_livres_reader": []
-    },
-    {
-        "nom": "\u0414\u0436\u0435\u0439\u043c\u0441",
-        "prenom": "\u0411\u043e\u043d\u0434",
-        "id": "1004",
-        "list_des_livres_reader": []
-    },
-    {
-        "nom": "\u041f\u0440\u043e\u0445\u043e\u0440",
-        "prenom": "\u041c\u0438\u043a\u0440\u043e\u043d",
-        "id": "1005",
         "list_des_livres_reader": []
     }
 ]
