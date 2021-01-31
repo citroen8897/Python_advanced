@@ -1,6 +1,7 @@
 class Livre:
-    def __init__(self, id_livre: str, nom: str, author: str, year: str,
-                 triger: int) -> None:
+    def __init__(
+        self, id_livre: str, nom: str, author: str, year: str, triger: int
+    ) -> None:
         """
         Создаем объект класса Книга.
         Необходимо передать пять атрибутов. Первые четыре - str. Пятый - int.
