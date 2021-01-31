@@ -241,7 +241,7 @@ class Bibliotheque:
                     "rue": new_reader.rue,
                     "maison": new_reader.maison,
                     "id": new_reader.id_reader,
-                    "list_des_livres_reader": new_reader.list_des_livres_reader,
+                    "list_des_livres_reader": new_reader.list_des_livres_reader
                 }
             )
             print("Пользователь успешно зарегистрирован!")
