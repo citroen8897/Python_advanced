@@ -12,10 +12,11 @@ class Bibliotheque:
     def plus_livre(self, new_livre: any) -> None:
         """
         Метод добавления новой книги в бибилиотеку.
-        Необходимо передать пять атрибутов объекта Книга.
-        Метод записывает атрибуты в словарь и добавляет его в список книг.
+        Необходимо передать объект типа Книга.
+        Метод записывает атрибуты переданного объекта Книга в словарь и
+        добавляет его в список книг.
         В методе реализована проверка эксклюзивности Книги.
-        :param new_livre: первые четыре атрибута str, пятый атрибут - int
+        :param new_livre: см. объект Книга -> livres.py
         :return:
         """
         id_livres_list = [element["id"] for element in self.list_livres]
@@ -161,10 +162,9 @@ class Bibliotheque:
     def plus_reader(self, new_reader: any) -> None:
         """
         Метод добавления читателя в библиотеку.
-        Необходимо передать девять атрибутов объекта Читатель.
-        Первые восемь атрибутов - str. Девятый - list.
+        Необходимо передать объект типа Читатель.
         В методе реализована проверка эксклюзивности Читателя.
-        :param new_reader:
+        :param new_reader: см. объект Читатель -> reader.py
         :return:
         """
         temp_id_list = len(
@@ -241,7 +241,7 @@ class Bibliotheque:
                     "rue": new_reader.rue,
                     "maison": new_reader.maison,
                     "id": new_reader.id_reader,
-                    "list_des_livres_reader": new_reader.list_des_livres_reader
+                    "list_des_livres_reader": new_reader.list_des_livres_reader,
                 }
             )
             print("Пользователь успешно зарегистрирован!")
