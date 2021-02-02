@@ -14,15 +14,15 @@ class Reader:
         """
         Создаем объект класса Читатель.
         Необходимо передать девять атрибутов.
-        :param nom:
-        :param prenom:
-        :param birth_jour:
-        :param birth_mois:
-        :param birth_an:
-        :param rue:
-        :param maison:
-        :param id_reader:
-        :param list_des_livres_reader:
+        :param nom: имя
+        :param prenom: фамилия
+        :param birth_jour: день рождения
+        :param birth_mois: месяц рождения
+        :param birth_an: год рождения
+        :param rue: улица
+        :param maison: дом
+        :param id_reader: id
+        :param list_des_livres_reader: список книг читателя
         """
         self.nom = nom
         self.prenom = prenom

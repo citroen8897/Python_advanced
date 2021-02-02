@@ -5,11 +5,11 @@ class Livre:
         """
         Создаем объект класса Книга.
         Необходимо передать пять атрибутов. Первые четыре - str. Пятый - int.
-        :param id_livre:
-        :param nom:
-        :param author:
-        :param year:
-        :param triger:
+        :param id_livre: id
+        :param nom: название
+        :param author: автор
+        :param year: год издания
+        :param triger: триггер (0 - книгу у читателя или 1 - книга в библи-ке)
         """
         self.id_livre = id_livre
         self.nom = nom
