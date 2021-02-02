@@ -14,7 +14,7 @@ class Animal:
             self.__type_ = type_
 
     def get_nom(self):
-        return self.__nom
+        return self.__nom.title()
 
     def set_nom(self, nom):
         if not nom.isalpha():
