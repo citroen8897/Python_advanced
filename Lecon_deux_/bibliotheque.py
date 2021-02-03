@@ -256,7 +256,7 @@ class Bibliotheque:
         for element in self.list_livres:
             print(
                 f'{j}. {element["nom"]} {element["author"]} '
-                f'{element["year"]}'
+                f'{element["year"]}    id книги: {element["id"]}'
             )
             j += 1
 
@@ -271,7 +271,7 @@ class Bibliotheque:
             if element["triger"] == 1:
                 print(
                     f'{j}. {element["nom"]} {element["author"]} '
-                    f'{element["year"]}'
+                    f'{element["year"]}    id книги: {element["id"]}'
                 )
                 j += 1
 
@@ -286,7 +286,7 @@ class Bibliotheque:
             if element["triger"] == 0:
                 print(
                     f'{j}. {element["nom"]} {element["author"]} '
-                    f'{element["year"]}'
+                    f'{element["year"]}    id книги: {element["id"]}'
                 )
                 j += 1
 

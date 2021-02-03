@@ -1,16 +1,17 @@
 import animaux
 
+current_animal = animaux.Animal('xxx', 'yyy', '0')
 
-current_animal = animaux.Animal("", "", "")
-current_nom = animaux.Animal.set_nom(current_animal, nom=input("Имя: "))
-current_type = animaux.Animal.set_type(current_animal, type_=input("Вид: "))
-current_age = animaux.Animal.set_age(current_animal, age=input("Возраст: "))
+current_animal.__setattr__('nom_de_animal', input('Имя: '))
+while current_animal.nom_de_animal == 'не задано':
+    current_animal.__setattr__('nom_de_animal', input('Имя: '))
 
-print(
-    f"\nДанные животного:\nИмя: {current_animal.get_nom()}\n"
-    f"Возраст: {current_animal.get_age()}\n"
-    f"Вид: {current_animal.get_type()}"
-)
+current_animal.__setattr__('type_', input('Вид: '))
+while current_animal.type_ == 'не задано':
+    current_animal.__setattr__('type_', input('Вид: '))
 
-current_animal.set_nom('Тришка')
-print(current_animal.get_nom())
+current_animal.__setattr__('age', input('Возраст: '))
+while current_animal.age == 'не задано':
+    current_animal.__setattr__('age', input('Возраст: '))
+
+current_animal.__str__()

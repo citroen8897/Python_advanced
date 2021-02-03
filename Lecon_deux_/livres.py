@@ -1,3 +1,6 @@
+import re
+
+
 class Livre:
     def __init__(
         self, id_livre: str, nom: str, author: str, year: str, triger: int
@@ -16,3 +19,35 @@ class Livre:
         self.author = author
         self.year = year
         self.triger = triger
+
+    def __setattr__(self, key, value):
+        if key == 'id_livre':
+            if not value.isdigit():
+                print('Некорректный id')
+                self.__dict__[key] = 'не задано'
+            else:
+                self.__dict__[key] = value
+
+        elif key == 'nom':
+            if not re.findall(r'[a-zA-Z0-9]', value):
+                print('Некорректное название книги')
+                self.__dict__[key] = 'не задано'
+            else:
+                self.__dict__[key] = value.title()
+
+        elif key == 'author':
+            if not value.isalpha():
+                print('Некорректный автор!')
+                self.__dict__[key] = 'не задано'
+            else:
+                self.__dict__[key] = value.title()
+
+        elif key == 'year':
+            if not value.isdigit() or len(value) != 4:
+                print('Некорректный год')
+                self.__dict__[key] = 'не задано'
+            else:
+                self.__dict__[key] = value
+
+        else:
+            self.__dict__[key] = value

@@ -1,32 +1,31 @@
 class Animal:
-    def __init__(self, type_: str, nom: str, age: str) -> None:
-        self.__type_ = type_
-        self.__nom = nom
-        self.__age = age
+    def __init__(self, type_: str, nom_de_animal: str, age: str) -> None:
+        self.type_ = type_
+        self.nom_de_animal = nom_de_animal
+        self.age = age
 
-    def get_type(self):
-        return self.__type_
+    def __str__(self):
+        print(
+            f"\nДанные животного:\nИмя: {self.nom_de_animal}\n"
+            f"Вид: {self.type_}\nВозраст: {self.age}"
+        )
 
-    def set_type(self, type_):
-        if not type_.isalpha():
-            print("Некорректно!")
-        else:
-            self.__type_ = type_
-
-    def get_nom(self):
-        return self.__nom.title()
-
-    def set_nom(self, nom):
-        if not nom.isalpha():
-            print("Некорректно!")
-        else:
-            self.__nom = nom
-
-    def get_age(self):
-        return self.__age
-
-    def set_age(self, age):
-        if not age.isdigit():
-            print("Некорректно!")
-        else:
-            self.__age = age
+    def __setattr__(self, key, value):
+        if key == 'age':
+            if not value.isdigit():
+                print('Некорректный возраст!')
+                self.__dict__[key] = 'не задано'
+            else:
+                self.__dict__[key] = value
+        elif key == 'nom_de_animal':
+            if not value.isalpha():
+                print('Некорректное имя!')
+                self.__dict__[key] = 'не задано'
+            else:
+                self.__dict__[key] = value.title()
+        elif key == 'type_':
+            if not value.isalpha():
+                print('Некорректный вид!')
+                self.__dict__[key] = 'не задано'
+            else:
+                self.__dict__[key] = value

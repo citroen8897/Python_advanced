@@ -44,13 +44,24 @@ while True:
     )
 
     if user_input_1 == "1":
-        new_livre = livres.Livre(
-            input("id книги: "),
-            input("Название: "),
-            input("Автор: "),
-            input("Год издания: "),
-            triger=1,
-        )
+        new_livre = livres.Livre("0000", "xx", "yy", "2021", triger=1)
+
+        new_livre.__setattr__("id_livre", input("id книги: "))
+        while new_livre.id_livre == "не задано":
+            new_livre.__setattr__("id_livre", input("id книги: "))
+
+        new_livre.__setattr__("nom", input("Название книги: "))
+        while new_livre.nom == "не задано":
+            new_livre.__setattr__("nom", input("Название книги: "))
+
+        new_livre.__setattr__("author", input("Автор книги: "))
+        while new_livre.author == "не задано":
+            new_livre.__setattr__("author", input("Автор книги: "))
+
+        new_livre.__setattr__("year", input("Год издания книги: "))
+        while new_livre.year == "не задано":
+            new_livre.__setattr__("year", input("Год издания книги: "))
+
         bibliotheque.Bibliotheque.plus_livre(
             current_biblioteque, new_livre=new_livre
         )
@@ -103,16 +114,41 @@ while True:
 
     elif user_input_1 == "9":
         new_reader = reader.Reader(
-            input("Имя: "),
-            input("Фамилия: "),
-            input("День рождения: "),
-            input("Месяц рождения: "),
-            input("Год рождения: "),
-            input("Улица: "),
-            input("Дом: "),
-            input("id: "),
-            [],
+            "nom", "prenom", "0", "0", "0000", "rue", "1", "0000", []
         )
+
+        new_reader.__setattr__("nom", input("Имя читателя: "))
+        while new_reader.nom == "не задано":
+            new_reader.__setattr__("nom", input("Имя читателя: "))
+
+        new_reader.__setattr__("prenom", input("Фамилия читателя: "))
+        while new_reader.prenom == "не задано":
+            new_reader.__setattr__("prenom", input("Фамилия читателя: "))
+
+        new_reader.__setattr__("birth_jour", input("День рождения: "))
+        while new_reader.birth_jour == "не задано":
+            new_reader.__setattr__("birth_jour", input("День рождения: "))
+
+        new_reader.__setattr__("birth_mois", input("Месяц рождения: "))
+        while new_reader.birth_mois == "не задано":
+            new_reader.__setattr__("birth_mois", input("Месяц рождения: "))
+
+        new_reader.__setattr__("birth_an", input("Год рождения: "))
+        while new_reader.birth_an == "не задано":
+            new_reader.__setattr__("birth_an", input("Год рождения: "))
+
+        new_reader.__setattr__("rue", input("Улица: "))
+        while new_reader.rue == "не задано":
+            new_reader.__setattr__("rue", input("Улица: "))
+
+        new_reader.__setattr__("maison", input("Дом: "))
+        while new_reader.maison == "не задано":
+            new_reader.__setattr__("maison", input("Дом: "))
+
+        new_reader.__setattr__("id_reader", input("id читателя: "))
+        while new_reader.id_reader == "не задано":
+            new_reader.__setattr__("id_reader", input("id читателя: "))
+
         bibliotheque.Bibliotheque.plus_reader(
             current_biblioteque, new_reader=new_reader
         )
