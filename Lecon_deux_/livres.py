@@ -29,14 +29,14 @@ class Livre:
                 self.__dict__[key] = value
 
         elif key == 'nom':
-            if not re.findall(r'[a-zA-Z0-9]', value):
+            if not re.findall(r'\w', value):
                 print('Некорректное название книги')
                 self.__dict__[key] = 'не задано'
             else:
                 self.__dict__[key] = value.title()
 
         elif key == 'author':
-            if not value.isalpha():
+            if re.findall(r'[^a-zA-Zа-яА-Я, \s]', value):
                 print('Некорректный автор!')
                 self.__dict__[key] = 'не задано'
             else:

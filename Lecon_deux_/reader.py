@@ -60,14 +60,14 @@ class Reader:
                 self.__dict__[key] = value.title()
 
         elif key == 'birth_jour':
-            if not value.isdigit() or len(value) not in range(1, 3):
+            if not value.isdigit() or int(value) not in range(1, 32):
                 print('Некорректный день!')
                 self.__dict__[key] = 'не задано'
             else:
                 self.__dict__[key] = value
 
         elif key == 'birth_mois':
-            if not value.isdigit() or len(value) not in range(1, 3):
+            if not value.isdigit() or int(value) not in range(1, 13):
                 print('Некорректный месяц!')
                 self.__dict__[key] = 'не задано'
             else:
@@ -81,7 +81,7 @@ class Reader:
                 self.__dict__[key] = value
 
         elif key == 'rue':
-            if not re.findall(r'[a-zA-Z0-9]', value):
+            if re.findall(r'[^a-zA-Zа-яА-Я0-9]', value):
                 print('Некорректное название улицы!')
                 self.__dict__[key] = 'не задано'
             else:

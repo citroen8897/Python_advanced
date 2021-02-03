@@ -114,7 +114,7 @@ while True:
 
     elif user_input_1 == "9":
         new_reader = reader.Reader(
-            "nom", "prenom", "0", "0", "0000", "rue", "1", "0000", []
+            "nom", "prenom", "1", "1", "0000", "rue", "1", "0000", []
         )
 
         new_reader.__setattr__("nom", input("Имя читателя: "))
