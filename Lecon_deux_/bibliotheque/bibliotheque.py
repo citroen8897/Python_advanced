@@ -89,19 +89,22 @@ class Bibliotheque:
                     if livre.id_livre == id_livre:
                         if person.id_reader == id_reader:
                             if livre.triger == 0:
-                                if livre in person.list_des_livres_reader:
-                                    person.list_des_livres_reader.pop(
-                                        person.list_des_livres_reader.index(
-                                            livre
+                                for element in person.list_des_livres_reader:
+                                    if str(livre) in str(element):
+                                        person.list_des_livres_reader.pop(
+                                            person.list_des_livres_reader.index(
+                                                element
+                                            )
                                         )
-                                    )
-                                    livre.triger = 1
-                                    print(
-                                        "Книга успешно перемещена в список "
-                                        "доступных книг"
-                                    )
-                                else:
-                                    print("У данного читателя нет этой книги!")
+                                        livre.triger = 1
+                                        print(
+                                            "Книга успешно перемещена в список "
+                                            "доступных книг"
+                                        )
+                                    else:
+                                        print(
+                                            "У данного читателя нет этой книги!"
+                                        )
                             else:
                                 print("Данная книга находится в библиотеке!")
         else:
@@ -115,10 +118,9 @@ class Bibliotheque:
         print("Сортировка по названию книги")
         j = 1
         for element in sorted(
-            self.list_livres, key=lambda element: element.nom):
-            print(
-                f'{j}. {str(element)}'
-            )
+            self.list_livres, key=lambda element: element.nom
+        ):
+            print(f"{j}. {str(element)}")
             j += 1
 
     def sort_de_author(self):
@@ -131,9 +133,7 @@ class Bibliotheque:
         for element in sorted(
             self.list_livres, key=lambda element: element.author
         ):
-            print(
-                f'{j}. {str(element)}\n'
-            )
+            print(f"{j}. {str(element)}\n")
             j += 1
 
     def sort_de_year(self):
@@ -146,9 +146,7 @@ class Bibliotheque:
         for element in sorted(
             self.list_livres, key=lambda element: element.year
         ):
-            print(
-                f'{j}. {str(element)}'
-            )
+            print(f"{j}. {str(element)}")
             j += 1
 
     def plus_reader(self, new_reader: reader.Reader) -> None:
@@ -234,7 +232,7 @@ class Bibliotheque:
         print("\nСписок всех книг в библиотеке:\n")
         j = 1
         for element in self.list_livres:
-            print(f'{j}. {str(element)}')
+            print(f"{j}. {str(element)}")
             j += 1
 
     def get_list_livres_dans_bibliotheque(self):
@@ -246,7 +244,7 @@ class Bibliotheque:
         j = 1
         for element in self.list_livres:
             if element.triger == 1:
-                print(f'{j}. {str(element)}')
+                print(f"{j}. {str(element)}")
                 j += 1
 
     def get_list_livres_dans_readers(self):
@@ -258,7 +256,7 @@ class Bibliotheque:
         j = 1
         for element in self.list_livres:
             if element.triger == 0:
-                print(f'{j}. {str(element)}')
+                print(f"{j}. {str(element)}")
                 j += 1
 
     def get_list_readers_all(self):
@@ -269,5 +267,5 @@ class Bibliotheque:
         print("\nСписок зарегистрированных читателей:\n")
         j = 1
         for element in self.list_readers:
-            print(f'{j}. {str(element)}')
+            print(f"{j}. {str(element)}")
             j += 1

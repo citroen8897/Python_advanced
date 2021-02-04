@@ -21,29 +21,12 @@ finally:
     data_base_des_readers.close()
 
 list_de_livres = [
-    livres.Livre(
-        str(element["id_livre"]),
-        element["nom"],
-        element["author"],
-        element["year"],
-        element["triger"],
-    )
-    for element in list_de_livres
+    livres.Livre.faire_object_livre(livre) for livre in list_de_livres
 ]
 list_des_readers = [
-    reader.Reader(
-        element["nom"],
-        element["prenom"],
-        element["birth_jour"],
-        element["birth_mois"],
-        element["birth_an"],
-        element["rue"],
-        element["maison"],
-        str(element["id_reader"]),
-        element["list_des_livres_reader"],
-    )
-    for element in list_des_readers
+    reader.Reader.faire_object_reader(element) for element in list_des_readers
 ]
+
 current_biblioteque = bibliotheque.Bibliotheque(
     list_de_livres, list_des_readers
 )
@@ -150,7 +133,8 @@ while True:
             livre.__dict__ for livre in current_biblioteque.list_livres
         ]
         list_des_readers = [
-            element.faire_dict() for element in current_biblioteque.list_readers
+            element.faire_dict()
+            for element in current_biblioteque.list_readers
         ]
         data_pour_ecrire = json.dumps(list_de_livres, indent=4)
         data_pour_ecrire_2 = json.dumps(list_des_readers, indent=4)

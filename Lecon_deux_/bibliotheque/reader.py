@@ -1,4 +1,5 @@
 import re
+import livres
 
 
 class Reader:
@@ -107,3 +108,21 @@ class Reader:
             "id_reader": int(self.id_reader),
             "list_des_livres_reader": self.list_des_livres_reader,
         }
+
+    @classmethod
+    def faire_object_reader(cls, dict_data: dict):
+        dict_data["list_des_livres_reader"] = [
+            livres.Livre.faire_object_livre(livre)
+            for livre in dict_data["list_des_livres_reader"]
+        ]
+        return cls(
+            dict_data["nom"],
+            dict_data["prenom"],
+            dict_data["birth_jour"],
+            dict_data["birth_mois"],
+            dict_data["birth_an"],
+            dict_data["rue"],
+            dict_data["maison"],
+            str(dict_data["id_reader"]),
+            dict_data["list_des_livres_reader"],
+        )

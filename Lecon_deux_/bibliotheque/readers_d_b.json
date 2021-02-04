@@ -8,15 +8,7 @@
         "rue": "8 \u041c\u0430\u0440\u0442\u0430",
         "maison": "22",
         "id_reader": 1001,
-        "list_des_livres_reader": [
-            {
-                "id_livre": 1,
-                "nom": "\u041c\u0430\u0441\u0442\u0435\u0440 \u0418 \u041c\u0430\u0440\u0433\u0430\u0440\u0438\u0442\u0430",
-                "author": "\u0411\u0443\u043b\u0433\u0430\u043a\u043e\u0432",
-                "year": "2018",
-                "triger": 0
-            }
-        ]
+        "list_des_livres_reader": []
     },
     {
         "nom": "\u0413\u0435\u043e\u0440\u0433\u0438\u0439",

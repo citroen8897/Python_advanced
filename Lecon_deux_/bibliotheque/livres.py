@@ -23,13 +23,13 @@ class Livre:
     def __setattr__(self, key, value):
         if key == 'id_livre':
             while not value.isdigit():
-                print('Некорректный id')
+                print('Некорректный id!')
                 value = input('Введите корректный id: ')
             self.__dict__[key] = int(value)
 
         elif key == 'nom':
             while not re.findall(r'\w', value):
-                print('Некорректное название книги')
+                print('Некорректное название книги!')
                 value = input('Введите корректно название книги: ')
             self.__dict__[key] = value.title()
 
@@ -41,7 +41,7 @@ class Livre:
 
         elif key == 'year':
             while not value.isdigit() or len(value) != 4:
-                print('Некорректный год')
+                print('Некорректный год!')
                 value = input('Введите корректно год издания книги: ')
             self.__dict__[key] = value
 
@@ -51,3 +51,13 @@ class Livre:
     def __str__(self):
         return f'\nНазвание: {self.nom}\nАвтор: {self.author}\n' \
                f'Год: {self.year}\nid: {self.id_livre}\n'
+
+    @classmethod
+    def faire_object_livre(cls, dict_data: dict):
+        return cls(
+            str(dict_data['id_livre']),
+            dict_data["nom"],
+            dict_data['author'],
+            dict_data['year'],
+            dict_data['triger']
+            )
