@@ -1,0 +1,32 @@
+[
+    {
+        "nom": "\u0410\u043b\u0435\u043a\u0441\u0435\u0439",
+        "prenom": "\u041a\u0430\u0442\u043a\u043e\u0432",
+        "birth_jour": "25",
+        "birth_mois": "08",
+        "birth_an": "1990",
+        "rue": "8 \u041c\u0430\u0440\u0442\u0430",
+        "maison": "22",
+        "id_reader": 1001,
+        "list_des_livres_reader": [
+            {
+                "id_livre": 1,
+                "nom": "\u041c\u0430\u0441\u0442\u0435\u0440 \u0418 \u041c\u0430\u0440\u0433\u0430\u0440\u0438\u0442\u0430",
+                "author": "\u0411\u0443\u043b\u0433\u0430\u043a\u043e\u0432",
+                "year": "2018",
+                "triger": 0
+            }
+        ]
+    },
+    {
+        "nom": "\u0413\u0435\u043e\u0440\u0433\u0438\u0439",
+        "prenom": "\u0413\u0443\u0437\u043b\u043e",
+        "birth_jour": "28",
+        "birth_mois": "05",
+        "birth_an": "2017",
+        "rue": "8 \u041c\u0430\u0440\u0442\u0430",
+        "maison": "22",
+        "id_reader": 1002,
+        "list_des_livres_reader": []
+    }
+]
