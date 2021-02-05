@@ -229,6 +229,22 @@ class Bibliotheque:
             self.list_readers.append(new_reader)
             print("Пользователь успешно зарегистрирован!")
 
+    def delete_reader(self, id_reader: int) -> None:
+        """
+        Метод удаления пользователя.
+        Необходимо передать id читателя для удаления
+        :param id_reader:
+        :return:
+        """
+        id_readers_list = [element.id_reader for element in self.list_readers]
+        if id_reader in id_readers_list:
+            for element in self.list_readers:
+                if element.id_reader == id_reader:
+                    self.list_readers.pop(self.list_readers.index(element))
+            print("Читатель удален из картотеки")
+        else:
+            print("Читатель с таким id не найден")
+
     def get_list_livres_all(self):
         """
         Показать список всех книг в бибилиотеке.

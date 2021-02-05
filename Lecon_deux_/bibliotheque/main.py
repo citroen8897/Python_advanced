@@ -44,6 +44,7 @@ while True:
         "8 - сортировка книг в библиотеке\n"
         "9 - добавить читателя\n"
         "10 - показать список читателей\n"
+        "11 - удалить читателя\n"
         "0 - выход из программы\n"
         "Ваш выбор: "
     )
@@ -123,6 +124,12 @@ while True:
 
     elif user_input_1 == "10":
         current_biblioteque.get_list_readers_all()
+
+    elif user_input_1 == "11":
+        user_input_2 = input("Введите id читателя для удаления: ")
+        while not user_input_2.isdigit():
+            user_input_2 = input("Введите id читателя для удаления: ")
+        current_biblioteque.delete_reader(int(user_input_2))
 
     elif user_input_1 == "0":
         with open(path_des_livres, 'w') as data_base_des_livres:
