@@ -88,23 +88,28 @@ class Bibliotheque:
                 for person in self.list_readers:
                     if livre.id_livre == id_livre:
                         if person.id_reader == id_reader:
+                            current_reader_livres = [
+                                str(j) for j in person.list_des_livres_reader
+                            ]
                             if livre.triger == 0:
-                                for element in person.list_des_livres_reader:
-                                    if str(livre) in str(element):
-                                        person.list_des_livres_reader.pop(
-                                            person.list_des_livres_reader.index(
-                                                element
+                                if str(livre) in current_reader_livres:
+                                    for (
+                                        element
+                                    ) in person.list_des_livres_reader:
+                                        if str(livre) == str(element):
+                                            person.list_des_livres_reader.pop(
+                                                person.list_des_livres_reader.index(
+                                                    element
+                                                )
                                             )
-                                        )
-                                        livre.triger = 1
-                                        print(
-                                            "Книга успешно перемещена в список "
-                                            "доступных книг"
-                                        )
-                                    else:
-                                        print(
-                                            "У данного читателя нет этой книги!"
-                                        )
+                                            livre.triger = 1
+                                            print(
+                                                "Книга успешно перемещена в "
+                                                "список доступных книг"
+                                            )
+                                else:
+                                    print("У данного читателя нет этой книги!")
+
                             else:
                                 print("Данная книга находится в библиотеке!")
         else:

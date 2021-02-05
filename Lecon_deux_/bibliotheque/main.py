@@ -2,33 +2,31 @@ import bibliotheque
 import livres
 import reader
 import json
+import os.path
 
 print("S.P.Q.R.")
 
-try:
-    data_base_de_livres = open("livres_d_b.json", "r")
-    data_base_des_readers = open("readers_d_b.json", "r")
-except FileNotFoundError:
-    data_base_de_livres = open("livres_d_b.json", "w")
-    data_base_des_readers = open("readers_d_b.json", "w")
-    list_de_livres = []
-    list_des_readers = []
-else:
-    list_de_livres = json.load(data_base_de_livres)
-    list_des_readers = json.load(data_base_des_readers)
-finally:
-    data_base_de_livres.close()
-    data_base_des_readers.close()
+path_des_livres = "livres_d_b.json"
+list_des_livres = []
+if os.path.exists(path_des_livres):
+    with open(path_des_livres, 'r') as data_base_des_livres:
+        list_des_livres = json.load(data_base_des_livres)
 
-list_de_livres = [
-    livres.Livre.faire_object_livre(livre) for livre in list_de_livres
+path_des_readers = "readers_d_b.json"
+list_des_readers = []
+if os.path.exists(path_des_readers):
+    with open(path_des_readers, 'r') as data_base_des_readers:
+        list_des_readers = json.load(data_base_des_readers)
+
+list_des_livres = [
+    livres.Livre.faire_object_livre(livre) for livre in list_des_livres
 ]
 list_des_readers = [
     reader.Reader.faire_object_reader(element) for element in list_des_readers
 ]
 
 current_biblioteque = bibliotheque.Bibliotheque(
-    list_de_livres, list_des_readers
+    list_des_livres, list_des_readers
 )
 
 while True:
@@ -127,21 +125,20 @@ while True:
         current_biblioteque.get_list_readers_all()
 
     elif user_input_1 == "0":
-        data_base_de_livres = open("livres_d_b.json", "w")
-        data_base_des_readers = open("readers_d_b.json", "w")
-        list_de_livres = [
-            livre.__dict__ for livre in current_biblioteque.list_livres
-        ]
-        list_des_readers = [
-            element.faire_dict()
-            for element in current_biblioteque.list_readers
-        ]
-        data_pour_ecrire = json.dumps(list_de_livres, indent=4)
-        data_pour_ecrire_2 = json.dumps(list_des_readers, indent=4)
-        data_base_de_livres.write(data_pour_ecrire)
-        data_base_de_livres.close()
-        data_base_des_readers.write(data_pour_ecrire_2)
-        data_base_des_readers.close()
+        with open(path_des_livres, 'w') as data_base_des_livres:
+            list_des_livres = [
+                livre.__dict__ for livre in current_biblioteque.list_livres
+            ]
+            data_pour_ecrire = json.dumps(list_des_livres, indent=4)
+            data_base_des_livres.write(data_pour_ecrire)
+
+        with open(path_des_readers, 'w') as data_base_des_readers:
+            list_des_readers = [
+                element.faire_dict()
+                for element in current_biblioteque.list_readers
+            ]
+            data_pour_ecrire_2 = json.dumps(list_des_readers, indent=4)
+            data_base_des_readers.write(data_pour_ecrire_2)
 
         input("Нажмите любую клавишу для выхода")
         break
